@@ -1,0 +1,7 @@
+<table>
+  <tr *ngFor="let row of myGrid.rows">
+    <td *ngFor="let col of row.columns" (click)="onCellClick(row, col)">
+      {{ col.content }}
+    </td>
+  </tr>
+</table>
