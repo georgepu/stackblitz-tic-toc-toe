@@ -1,5 +1,5 @@
 export const GRID = {
-  demention: 3,
+  demention: 4,
   description: 'tic-toc-toe',
   rows: [
     {
@@ -15,6 +15,10 @@ export const GRID = {
         },
         {
           id: 2,
+          content: '',
+        },
+        {
+          id: 3,
           content: '',
         },
       ],
@@ -33,6 +37,11 @@ export const GRID = {
         {
           id: 2,
           content: '',
+          
+        },
+        {
+          id: 3,
+          content: '',
         },
       ],
     },
@@ -49,6 +58,31 @@ export const GRID = {
         },
         {
           id: 2,
+          content: '',
+        },
+        {
+          id: 3,
+          content: '',
+        },
+      ],
+    },
+    {
+      id: 3,
+      columns: [
+        {
+          id: 0,
+          content: '',
+        },
+        {
+          id: 1,
+          content: '',
+        },
+        {
+          id: 2,
+          content: '',
+        },
+        {
+          id: 3,
           content: '',
         },
       ],
