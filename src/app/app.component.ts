@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GRID } from './constants/app.constants';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,8 +9,23 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  myGrid = GRID;
+  myGrid = this.grid(4);
   userCount = 0;
+
+  grid(dimention: number) {
+    const rows = Array(dimention).fill(0).map((_, i) => ({
+      id: i,
+      columns: Array.from({length: dimention}, (_, i) => ({
+        id: i,
+        content: ''
+      }))
+    }));
+    return {
+      dimention,
+      description: 'tic-toc-toe',
+      rows
+    };
+  }
 
   onCellClick(row: any, col: any) {
     let diagnal = false;
@@ -25,9 +39,10 @@ export class AppComponent {
       } else {
         col.content = 'O';
       }
+      console.log(this.myGrid);
     }
 
-    if (row.id + col.id === this.myGrid.demention - 1) {//diagnal 1
+    if (row.id + col.id === this.myGrid.dimention - 1) {//diagnal 1
       let endDiagChk = false;
       this.myGrid.rows.forEach((r: any) => {
         r.columns.forEach((c: any) => {
@@ -35,7 +50,7 @@ export class AppComponent {
             if (!endDiagChk && c.content === col.content) {
               diagnal = true;
             } else {
-            diagnal = false;
+              diagnal = false;
               endDiagChk = true;
             }
           }
